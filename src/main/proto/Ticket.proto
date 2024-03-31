@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package org.eventTicket;
+import "google/protobuf/timestamp.proto";
+
+
+service TicketService{
+
+    rpc GetAllTickets (Empty) returns (TicketList){}
+    rpc GetTicketById(TicketRequestId) returns (Ticket) {};
+    rpc CreateTicket(Ticket) returns (Ticket) {};
+    rpc UpdateTicket(Ticket) returns (Ticket) {};
+    rpc RemoveTicket(TicketRequestId) returns (Empty){}
+
+
+}
+
+message Empty{}
+
+message Ticket{
+    string id = 1;
+    string eventname = 2;
+    string eventdate = 3;
+    double eventprice = 4;
+    int32 quanitity = 5;
+}
+
+message TicketList{
+    repeated Ticket tickets = 1;
+}
+
+message TicketRequestId{
+    string id = 1;
+}
+
+

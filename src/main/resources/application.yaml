@@ -1,0 +1,22 @@
+server:
+  port: 8100
+grpc:
+  client:
+    ticket:
+      address: http://localhost:9000
+      negotiationType: PLAINTEXT
+---
+spring:
+  config:
+    activate:
+      on-profile: develop
+
+users:
+  service:
+    url: http://localhost:8081
+
+grpc:
+  ticket:
+    user:
+      address: static://localhost:9000
+
