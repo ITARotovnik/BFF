@@ -1,13 +1,15 @@
 
 **BFF (Backend For Frontend) for Users, Tickets, and Payment Services**
+
 This project serves as a Backend For Frontend (BFF) built with Spring Boot to cater to users, tickets, and payment services. It includes two gateways—one for web clients and another for mobile clients. Users and payments services are using REST, the ticket service is using gRPC
 
-**Techonologies used:**- Springboot
+**Techonologies used:**
+
+- Springboot
 
 **Endpoints:**
 
-Users Service:
-
+_Users Service:_
 /web/users/ : get, post all users
 /web/users/{id}: get user by id, delete or update user
 
@@ -15,7 +17,7 @@ Users Service:
 /mobile/users/{id}: get user by id, delete or update user
 
 
-Tickets Service:
+_Tickets Service:_
 
 /web/tickets/ : get or post tickets
 /web/tickets/{id}: get ticket by id, update or delete ticket
@@ -23,8 +25,7 @@ Tickets Service:
 /mobile/tickets/ : get or post tickets
 /mobile/tickets/{id}: get ticket by id, update or delete ticket
 
-Payment Service
-
+_Payment Service_
 /web/payments/: get or post payment
 /web/payment/{id}: get payment by id, update or delete payment
 
