@@ -71,6 +71,21 @@
             }
         }
 
+        @GetMapping("/users/email/{email}")
+        public ResponseEntity<String> getUsersByEmail(@PathVariable String email,HttpServletRequest request ) {
+            try {
+                logService.logAction("Got user with email: " + email, request.getMethod(),request.getRequestURI());
+
+                return businessUser.getUsersByEmail(email);
+            } catch (HttpClientErrorException.NotFound ex) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found with email: " + email);
+            } catch (Exception ex) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error");
+            }
+        }
+
+
+
         @PostMapping("/users")
         public ResponseEntity<UsersDTO> createUser(@RequestBody UsersDTO user, HttpServletRequest request){
             logService.logAction("User created", request.getMethod(),request.getRequestURI());

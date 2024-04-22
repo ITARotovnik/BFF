@@ -30,6 +30,10 @@ public class BffBusinessUsers {
         return restTemplate.getForEntity(usersUrl+"/users/" + id,String.class);
     }
 
+    public ResponseEntity<String> getUsersByEmail(String email){
+        return restTemplate.getForEntity(usersUrl+"/users/byEmail/"+email, String.class);
+    }
+
     public ResponseEntity<UsersDTO> createUser(UsersDTO user) {
         return restTemplate.postForEntity(usersUrl + "/users", user, UsersDTO.class);
     }
